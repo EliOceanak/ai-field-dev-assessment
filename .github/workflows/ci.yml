@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verify:
+    name: hygiene + typecheck + tests (Node 24)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Deliberately does NOT install or start an LLM server: the offline suites
+      # are hermetic. Live suites are opt-in via RUN_LIVE_LLM=1.
+      - name: Verify (hygiene, typecheck, tests)
+        run: npm run verify
+        env:
+          CI: 'true'

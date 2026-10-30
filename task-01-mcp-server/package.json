@@ -1,0 +1,28 @@
+{
+  "name": "task-01-mcp-server",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Task 1 — MCP server exposing get_customer_record / trigger_refund over stdio with strict Zod validation.",
+  "scripts": {
+    "start": "tsx src/server.ts",
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit",
+    "hygiene": "node scripts/check-stdout-hygiene.mjs",
+    "test": "node scripts/check-stdout-hygiene.mjs && vitest run",
+    "test:watch": "vitest",
+    "test:live": "vitest run --config vitest.live.config.ts",
+    "demo": "node scripts/smoke-stdio.mjs",
+    "demo:live": "node scripts/agent-demo.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.2",
+    "tsx": "^4.23.15",
+    "typescript": "~5.9.3",
+    "vitest": "^5.0.5"
+  }
+}

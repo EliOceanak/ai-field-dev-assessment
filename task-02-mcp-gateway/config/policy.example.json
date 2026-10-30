@@ -1,0 +1,9 @@
+{
+  "//": "Example file-driven policy — point GATEWAY_POLICY_FILE at a copy of this file.",
+  "//2": "Rules are evaluated in order: deny globs, then the privileged-prefix rule, then allow globs.",
+  "//3": "An allow glob can never escalate past the prefix rule (see src/policy/toolPolicy.ts).",
+  "privilegedPrefixes": ["admin_", "internal_"],
+  "requiredRole": "admin",
+  "deny": ["drop_database"],
+  "allow": ["get_*"]
+}

@@ -1,0 +1,46 @@
+# ---------------------------------------------------------------------------
+# Node
+# ---------------------------------------------------------------------------
+node_modules/
+dist/
+build/
+coverage/
+.vitest/
+.vitest-*
+*.tsbuildinfo
+npm-debug.log*
+yarn-error.log*
+.pnpm-store/
+
+# ---------------------------------------------------------------------------
+# Runtime artifacts (SQLite databases, WAL/SHM sidecars, logs)
+#
+# NOTE: anchored on purpose. A bare `data/` would also match source directories
+# such as `task-01-mcp-server/src/data/` and silently drop them from the commit.
+# ---------------------------------------------------------------------------
+/data/
+task-*/data/
+*.db
+*.db-wal
+*.db-shm
+*.db-journal
+*.sqlite
+*.sqlite3
+*.log
+
+# ---------------------------------------------------------------------------
+# Local environment / secrets  (keep the example files!)
+# ---------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+!**/.env.example
+
+# ---------------------------------------------------------------------------
+# Editors / OS
+# ---------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp

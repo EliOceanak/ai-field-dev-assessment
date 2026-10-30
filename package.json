@@ -1,0 +1,26 @@
+{
+  "name": "ai-field-dev-assessment",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "AI Field Developer / Solutions Engineer assessment: MCP server, MCP security gateway, LLM streaming guardrail, and a rate-limiting/fallback router.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=24"
+  },
+  "workspaces": [
+    "task-01-mcp-server",
+    "task-02-mcp-gateway",
+    "task-03-streaming-guardrail",
+    "task-04-router-fallback"
+  ],
+  "scripts": {
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "test:live": "npm run test:live --workspaces --if-present",
+    "hygiene": "npm run hygiene --workspaces --if-present",
+    "check:docs": "node scripts/check-doc-test-paths.mjs",
+    "verify": "npm run hygiene && npm run check:docs && npm run typecheck && npm test",
+    "clean": "rm -rf node_modules task-*/node_modules task-*/dist task-*/coverage task-*/data"
+  }
+}
